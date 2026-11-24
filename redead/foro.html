@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Foro de la comunidad Read Dead Wikimption: debate sobre personajes, armas, animales e historia de la saga Red Dead.">
+  <title>Foro | Read Dead Wikimption</title>
+  <link rel="stylesheet" href="foro.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Inicio Read Dead Wikimption">
+      <span class="brand-mark">RDR</span>
+      <span class="brand-name">READ DEAD <b>WIKIMPTION</b></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="armas.html">Armas</a>
+      <a href="animales.html">Animales</a>
+      <a href="historia.html">Historia</a>
+      <a class="active" href="foro.html">Foro</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">COMUNIDAD</p>
+      <h1>Foro</h1>
+      <p class="hero-lead">Debate con otros jugadores sobre la saga: teorías, personajes, armas y mucho más.</p>
+    </div>
+  </section>
+
+  <div class="page-layout">
+    <aside class="sidebar">
+      <!-- Panel de acceso -->
+      <div id="auth-box" class="panel">
+        <div id="guest-view">
+          <div class="tabs" role="tablist">
+            <button type="button" class="tab active" data-mode="login">Iniciar sesión</button>
+            <button type="button" class="tab" data-mode="register">Registrarse</button>
+          </div>
+          <form id="auth-form" autocomplete="on">
+            <label for="auth-user">Usuario</label>
+            <input id="auth-user" name="username" type="text" minlength="3" maxlength="20" required autocomplete="username">
+            <label for="auth-pass">Contraseña</label>
+            <input id="auth-pass" name="password" type="password" minlength="8" required autocomplete="current-password">
+            <p id="auth-error" class="form-error" role="alert"></p>
+            <button type="submit" class="btn" id="auth-submit">Entrar</button>
+          </form>
+        </div>
+        <div id="user-view" hidden>
+          <p class="note-label">SESIÓN INICIADA</p>
+          <p class="welcome">Bienvenido, <strong id="user-name"></strong></p>
+          <button type="button" class="btn ghost" id="logout-btn">Cerrar sesión</button>
+        </div>
+      </div>
+
+      <!-- Categorías -->
+      <div class="sidebar-heading">Categorías</div>
+      <nav id="categories" class="categories" aria-label="Categorías del foro"></nav>
+    </aside>
+
+    <main class="article">
+      <!-- Lista de temas -->
+      <section id="list-view">
+        <div class="article-topline">
+          <h2 id="list-title">Todos los temas</h2>
+          <button type="button" class="btn" id="new-topic-btn">Nuevo tema</button>
+        </div>
+
+        <form id="topic-form" class="panel" hidden>
+          <label for="topic-cat">Categoría</label>
+          <select id="topic-cat" name="category" required></select>
+          <label for="topic-title">Título</label>
+          <input id="topic-title" name="title" type="text" maxlength="120" required>
+          <label for="topic-body">Mensaje</label>
+          <textarea id="topic-body" name="body" rows="5" maxlength="5000" required></textarea>
+          <p id="topic-error" class="form-error" role="alert"></p>
+          <div class="form-actions">
+            <button type="submit" class="btn">Publicar</button>
+            <button type="button" class="btn ghost" id="cancel-topic">Cancelar</button>
+          </div>
+        </form>
+
+        <ul id="topic-list" class="topic-list"></ul>
+        <p id="empty-msg" class="empty" hidden>Todavía no hay temas aquí. ¡Sé el primero en abrir uno!</p>
+      </section>
+
+      <!-- Vista de un tema -->
+      <section id="thread-view" hidden>
+        <a href="#" class="back-link" id="back-link">← Volver a los temas</a>
+        <h2 id="thread-title"></h2>
+        <p id="thread-meta" class="updated"></p>
+        <div id="posts"></div>
+
+        <form id="reply-form" class="panel" hidden>
+          <label for="reply-body">Tu respuesta</label>
+          <textarea id="reply-body" rows="4" maxlength="5000" required></textarea>
+          <p id="reply-error" class="form-error" role="alert"></p>
+          <button type="submit" class="btn">Responder</button>
+        </form>
+        <p id="reply-login" class="notice" hidden>Inicia sesión para participar en el debate.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-rule"></div>
+    <span>READ DEAD WIKIMPTION <b>◆</b> FORO DE LA COMUNIDAD</span>
+  </footer>
+
+  <script src="foro.js"></script>
+</body>
+</html>
